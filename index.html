@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No witam!</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div id="menu">
+        <a href="#header"><img src="images/home.png" class="menu-item" alt="Home"></a>
+        <a href="#person"><img src="images/person.jpg" class="menu-item" alt="Person"></a>
+        <a href="#education"><img src="images/education.png" class="menu-item" alt="Education"></a>
+        <a href="#experience"><img src="images/doswiadczenie.png" class="menu-item" alt="Experience"></a>
+        <a href="#contact"><img src="images/contact.png" class="menu-item" alt="Contact"></a>
+    </div>
+
+    <div id="header">
+        <h1>Hej, nazywam się Szymon Małachowski</h1>
+        <h3>Interesuję się sportem, motoryzacją oraz programowaniem</h3>
+    </div>
+
+    <div id="person">
+        <h1>O mnie</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porta purus quis gravida lobortis. In semper nisl eros, et pretium magna finibus in. Curabitur vehicula felis id nisi laoreet, id finibus nisi mollis. Duis ornare aliquam turpis quis vehicula.</p>
+    </div>
+
+    <div id="education">
+        <h1>Edukacja</h1>
+        <div class="grid-container">
+            <div class="education-item left">
+                <img src="images/logoZse.png" alt="ZSE Logo" onclick="toggleInfo('ZseInfo', 'Zespół Szkół Elektronicznych', 'Opis szkoły ZSE.')">
+                <div id="ZseInfo"></div>
+            </div>
+            <div class="education-item right">
+                <img src="images/logoMljar.png" alt="Mljar Logo" onclick="toggleInfo('MljarInfo', 'Inna Szkoła', 'Opis dotyczący innej szkoły.')">
+                <div id="MljarInfo"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="experience">
+        <h1>Doświadczenie</h1>
+        <div class="grid-container">
+            <div class="experience-item right">
+                <img src="images/AtwiLogo.png" alt="Atwi Logo" onclick="toggleInfo('AtwiInfo', 'Atwi', 'Opis dotyczący doświadczenia w Atwi.')">
+                <div id="AtwiInfo"></div>
+            </div>
+            <div class="experience-item left">
+                <img src="images/ukz7Logo.png" alt="UKZ7 Logo" onclick="toggleInfo('Ukz7Info', 'UKZ7', 'Opis dotyczący doświadczenia w UKZ7.')">
+                <div id="Ukz7Info"></div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div id="contact">
+        <h1>Kontakt</h1>
+        <a href="mailto:szymonmalachowski.1@gmail.com"><img src="images/mailto.png" class="contact-item" alt="Email"></a> 
+        <a href="https://github.com/qmpel22"><img src="images/github.png" class="contact-item" alt="GitHub"></a> 
+    </div>
+</body>
+</html>
