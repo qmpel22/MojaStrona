@@ -7,10 +7,10 @@ function toggleInfo(id, title, content) {
             <h2>${title}</h2>
             <p>${content}</p>
         `;
-        parentElement.classList.add("expanded"); // Dodanie klasy rozwijającej
+        parentElement.classList.add("expanded");
     } else {
         infoElement.innerHTML = "";
-        parentElement.classList.remove("expanded"); // Usunięcie klasy, jeśli tekst już był widoczny
+        parentElement.classList.remove("expanded");
     }
 }
 
@@ -101,3 +101,23 @@ document.addEventListener("DOMContentLoaded", function () {
         bar.style.width = targetWidth; // Ustaw docelową szerokość
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("slide-in-left");
+                observer.unobserve(entry.target); // Przestajemy obserwować po animacji
+            }
+        });
+    }, {
+        threshold: 0.1 // element musi być w 10% widoczny
+    });
+
+    elements.forEach(element => {
+        observer.observe(element);
+    });
+});
+

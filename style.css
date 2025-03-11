@@ -1,7 +1,7 @@
 /* ==========================================================================
    Global Styles
    ========================================================================== */
-body {
+   body {
     background-color: #ececec;
     font-family: 'Andale Mono', monospace;
     margin: 0;
@@ -27,6 +27,7 @@ a {
     right: 0;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: slideInDown 0.8s ease-out;
 }
 
 .menu-item {
@@ -174,14 +175,14 @@ a {
 /* ==========================================================================
    Education & Experience Sections
    ========================================================================== */
-#education,
-#experience {
+#education-experience,
+#projects {
     padding: 40px 20px;
     background-color: #f7f7f7;
 }
 
-#education h1,
-#experience h1 {
+#education-experience h1,
+#projects h1 {
     text-align: center;
     margin-bottom: 30px;
     color: #710627;
@@ -190,14 +191,13 @@ a {
 .grid-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 30px;
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.education-item,
-.experience-item {
+.card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -208,45 +208,128 @@ a {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     max-width: 100%;
-    height: 250px;
-    overflow: hidden;
+    min-height: 250px;
+    height: auto;
     position: relative;
 }
 
-.education-item img,
-.experience-item img {
+.card img {
     max-width: 80%;
     height: auto;
     cursor: pointer;
     object-fit: contain;
+    transition: transform 0.3s ease;
 }
 
-.education-item:hover,
-.experience-item:hover {
+.card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Expanded state styles */
-.expanded {
+.card.expanded {
     height: auto;
-    min-height: 250px;
-    transition: all 0.3s ease-in-out;
 }
 
-.expanded .education-item-content,
-.expanded .experience-item-content {
-    opacity: 1;
-    transform: translateY(0);
+.card.expanded img {
+    transform: scale(0.8);
+    margin-bottom: 20px;
 }
 
-.education-item-content,
-.experience-item-content {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s ease-in-out;
-    padding: 15px;
+#ZseInfo, #AtwiInfo, #Ukz7Info, #MljarInfo {
     width: 100%;
+    padding: 15px;
+    text-align: center;
+}
+
+#ZseInfo h2, #AtwiInfo h2, #Ukz7Info h2, #MljarInfo h2 {
+    color: #710627;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+#ZseInfo p, #AtwiInfo p, #Ukz7Info p, #MljarInfo p {
+    color: #595457;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Projects Section */
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.project-card h3 {
+    color: #710627;
+    margin-bottom: 15px;
+}
+
+.project-card p {
+    color: #595457;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+}
+
+.project-btn {
+    background-color: #9E1946;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.project-btn:hover {
+    background-color: #710627;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .grid-container,
+    .projects-container {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .card {
+        height: 200px;
+        padding: 15px;
+    }
+
+    .project-card {
+        padding: 20px;
+    }
+
+    .project-links {
+        flex-direction: column;
+    }
+
+    .project-btn {
+        text-align: center;
+    }
 }
 
 /* ==========================================================================
@@ -344,11 +427,33 @@ a {
     }
 }
 
+/* Animacja wejścia od lewej */
+@keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+}
+
+/* Początkowy stan elementów, które będą animowane */
+.animate-on-scroll {
+    opacity: 0;
+}
+
+/* Klasa, która uruchamia animację */
+.slide-in-left {
+    animation: slideInLeft 1s ease-out forwards;
+}
+
 /* ==========================================================================
    Media Queries
    ========================================================================== */
 @media (max-width: 768px) {
-    .grid-container {
+    .grid-container:not(#experience .grid-container) {
         grid-template-columns: 1fr;
         padding: 10px;
     }
@@ -389,5 +494,89 @@ a {
 
     #header h3 {
         font-size: 1.2em;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form-wrapper {
+        padding: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+}
+
+.education-skills {
+    background-color: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.education-skills:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.education-skills h2 {
+    color: #710627;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.skill-category h3 {
+    color: #9E1946;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.skill-category ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-category li {
+    padding: 8px 0;
+    color: #595457;
+    position: relative;
+    padding-left: 20px;
+}
+
+.skill-category li::before {
+    content: "•";
+    color: #9E1946;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .education-skills {
+        margin-top: 20px;
+        padding: 15px;
+    }
+
+    .skill-category h3 {
+        font-size: 1em;
+    }
+
+    .skill-category li {
+        font-size: 0.9em;
+        padding: 6px 0;
     }
 }
