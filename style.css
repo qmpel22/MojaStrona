@@ -54,7 +54,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: url('images/background.png') center 58%/cover no-repeat;
+    background: url('images/background.webp') center 58%/cover no-repeat;
     color: white;
     text-align: center;
     position: relative;
