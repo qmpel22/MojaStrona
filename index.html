@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>No witam!</title>
+    <title>Szymon Małachowski</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
@@ -22,47 +22,49 @@
 
     <div id="person">
         <h1>O mnie</h1>
-        <img src="images/skier.jpg" alt="Profile">
-        <h2>Cześć! Mam na imię Szymon i jestem uczniem Zespołu Szkół Elektrycznych w Białymstoku. Interesuję się sportem, motoryzacją oraz programowaniem. Pracuję jako trener w klubie żeglarskim. Lubię pracować z ludźmi i uczyć się nowych rzeczy. 
-            W wolnym czasie uczę się hiszpańskiego i ćwiczę na siłowni.</h2>
+        <div class="person-content">
+            <img src="images/skier.jpg" alt="Profile">
+            <h2>Cześć! Mam na imię Szymon i jestem uczniem Zespołu Szkół Elektrycznych w Białymstoku. Interesuję się sportem, motoryzacją oraz programowaniem. Pracuję jako trener w klubie żeglarskim. Lubię pracować z ludźmi i uczyć się nowych rzeczy. 
+                W wolnym czasie uczę się hiszpańskiego i ćwiczę na siłowni.</h2>
+        </div>
         
         <div class="skills">
             <div class="skill">
                 <label for="programmer">Programowanie</label>
                 <div class="progress-bar">
-                    <div id="programmer" class="progress"></div>
+                    <div id="programmer" class="progress" data-width="70%"></div>
                 </div>
             </div>
             <div class="skill">
-                <label for="language">Języki</label>
+                <label for="language">Znajomość języków</label>
                 <div class="progress-bar">
-                    <div id="language" class="progress"></div>
+                    <div id="language" class="progress" data-width="90%"></div>
                 </div>
             </div>
             <div class="skill">
                 <label for="SenseOfHumor">Poczucie humoru</label>
                 <div class="progress-bar">
-                    <div id="SenseOfHumor" class="progress"></div>
+                    <div id="SenseOfHumor" class="progress" data-width="100%"></div>
                 </div>
             </div>
             <div class="skill">
-                <label for="social-skills">Umiejętności społeczne</label>
+                <label for="time-management">Zarządzanie czasem</label>
                 <div class="progress-bar">
-                    <div id="social-skills" class="progress"></div>
+                    <div id="time-management" class="progress" data-width="87%"></div>
                 </div>
             </div>
         </div>
-    </div> <!-- Koniec sekcji 'person' -->
+    </div>
 
     <div id="education">
         <h1>Edukacja</h1>   
         <div class="grid-container">
             <div class="education-item right">
-                <img src="images/zseLogo.png" alt="ZSE Logo" onclick="toggleInfo('ZseInfo', 'Zespół Szkół Elektronicznych', 'Opis szkoły ZSE.')">
+                <img src="images/zseLogo.png" alt="ZSE Logo" onclick="toggleInfo('ZseInfo', 'Zespół Szkół Elektrycznych', 'Od 2021 uczę się w Zespole Szkół Elektrycznych na profilu technik programista. W tym czasie zdążyłem nauczyć się podstaw programowania w językach C#, C++, Python, Java Script, PHP i SQL. W 2024 roku zdałem egzamin zawodowy INF03 z wynikiem 96%')">
                 <div id="ZseInfo"></div>
             </div>
             <div class="education-item left">
-                <img src="images/logoMljar.png" alt="Mljar Logo" onclick="toggleInfo('MljarInfo', 'Inna Szkoła', 'Opis dotyczący innej szkoły.')">
+                <img src="images/logoMljar.png" alt="Mljar Logo" onclick="toggleInfo('MljarInfo', 'Praktyki w Mljar', 'W 2025 roku odbyłem praktyki w Mljar. Pracowałem w zespole IT, gdzie zajmowałem się tworzeniem stron internetowych oraz pisałem programy w jezyku Python')">
                 <div id="MljarInfo"></div>
             </div>
         </div>
@@ -72,11 +74,11 @@
         <h1>Doświadczenie</h1>
         <div class="grid-container">
             <div class="experience-item right">
-                <img src="images/AtwiLogo.png" alt="Atwi Logo" onclick="toggleInfo('AtwiInfo', 'Atwi', 'Opis dotyczący doświadczenia w Atwi.')">
+                <img src="images/AtwiLogo.png" alt="Atwi Logo" onclick="toggleInfo('AtwiInfo', 'Atwi', 'W Atwi projektowałem strony intenetowe w systemie WordPress. Przez miesiąc udało mi się wykonać ok 30 stron intenetowych i poprawek do nich.')">
                 <div id="AtwiInfo"></div>
             </div>
             <div class="experience-item left">
-                <img src="images/ukz7Logo.png" alt="UKZ7 Logo" onclick="toggleInfo('Ukz7Info', 'UKZ7', 'Opis dotyczący doświadczenia w UKZ7.')">
+                <img src="images/ukz7Logo.png" alt="UKZ7 Logo" onclick="toggleInfo('Ukz7Info', 'UKZ7', 'Od lipca 2024 pracuję w UKŻ7 jako trener żeglarski. Praca z dziećmi jest mi dość bliska, ponieważ mam w sobie jeszcze dzieciecego ducha przygody .')">
                 <div id="Ukz7Info"></div>
             </div>
         </div>

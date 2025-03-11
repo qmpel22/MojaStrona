@@ -1,15 +1,64 @@
-// Funkcja do przełączania widoczności informacji
 function toggleInfo(id, title, content) {
     const infoElement = document.getElementById(id);
+    const parentElement = infoElement.parentElement;
+
     if (infoElement.innerHTML.trim() === "") {
         infoElement.innerHTML = `
             <h2>${title}</h2>
             <p>${content}</p>
         `;
+        parentElement.classList.add("expanded"); // Dodanie klasy rozwijającej
     } else {
-        infoElement.innerHTML = ""; // Ukrywanie informacji, jeśli już są widoczne
+        infoElement.innerHTML = "";
+        parentElement.classList.remove("expanded"); // Usunięcie klasy, jeśli tekst już był widoczny
     }
 }
+
+// Function to animate progress bars
+function animateProgressBars() {
+    const progressBars = document.querySelectorAll(".progress");
+    progressBars.forEach(bar => {
+        const targetWidth = bar.getAttribute("data-width");
+        if (!bar.style.width) {
+            bar.style.transition = "width 1s ease-in-out";
+            bar.style.width = targetWidth;
+        }
+    });
+}
+
+// Function to check if element is in viewport
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Function to handle scroll events
+function handleScroll() {
+    const skillsSection = document.querySelector('.skills');
+    if (skillsSection && isInViewport(skillsSection)) {
+        animateProgressBars();
+    }
+}
+
+// Main initialization function
+document.addEventListener("DOMContentLoaded", () => {
+    // Initialize progress bars
+    const progressBars = document.querySelectorAll(".progress");
+    progressBars.forEach(bar => {
+        bar.style.width = "0";
+    });
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Initial check for elements in viewport
+    handleScroll();
+});
 
 // Obsługa kliknięcia na obrazki i dynamiczne dodawanie informacji
 function initializeClickHandlers() {
@@ -20,7 +69,7 @@ function initializeClickHandlers() {
 
     if (logoZse) {
         logoZse.addEventListener("click", () => {
-            toggleInfo("ZseInfo", "Zespół Szkół Elektrycznych", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porta purus quis gravida lobortis.");
+            toggleInfo("ZseInfo", "Zespół Szkół Elektrycznych", "Od 2021 uczę się w Zespole Szkół Elektrycznych na profilu technik programista. W tym czasie zdążyłem nauczyć się podstaw programowania w językach C#, C++, Python, Java Script, PHP i SQL. W 2024 roku zdałem egzamin zawodowy INF03 z wynikiem 96%");
         });
     }
 
@@ -43,52 +92,12 @@ function initializeClickHandlers() {
     }
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    // Pobierz wszystkie paski postępu
+    let progressBars = document.querySelectorAll(".progress");
 
-// Function to animate progress bars
-function animateProgressBars() {
-    const progressBars = document.querySelectorAll('.progress');
-    
     progressBars.forEach(bar => {
-        // Reset width to 0
-        bar.style.width = '0%';
-        
-        // Get the target width from data-width attribute
-        const targetWidth = bar.getAttribute('data-width');
-        
-        // Trigger reflow
-        void bar.offsetWidth;
-        
-        // Set the target width
-        bar.style.width = targetWidth;
+        let targetWidth = bar.getAttribute("data-width"); // Pobierz wartość z atrybutu
+        bar.style.width = targetWidth; // Ustaw docelową szerokość
     });
-}
-
-// Function to check if element is in viewport
-function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
-
-// Function to handle scroll events
-function handleScroll() {
-    const skillsSection = document.querySelector('.skills');
-    if (isInViewport(skillsSection)) {
-        animateProgressBars();
-    }
-}
-
-// Add scroll event listener
-window.addEventListener('scroll', handleScroll);
-
-// Initial check if skills section is in viewport
-handleScroll();
-
-// Główna funkcja inicjalizująca
-document.addEventListener("DOMContentLoaded", () => {
-    initializeClickHandlers();
 });
