@@ -18,28 +18,56 @@
 
     <div id="header">
         <h1>Hej, nazywam się Szymon Małachowski</h1>
-        <h3>Interesuję się sportem, motoryzacją oraz programowaniem</h3>
     </div>
 
     <div id="person">
         <h1>O mnie</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porta purus quis gravida lobortis. In semper nisl eros, et pretium magna finibus in. Curabitur vehicula felis id nisi laoreet, id finibus nisi mollis. Duis ornare aliquam turpis quis vehicula.</p>
-    </div>
+        <img src="images/skier.jpg" alt="Profile">
+        <h2>Cześć! Mam na imię Szymon i jestem uczniem Zespołu Szkół Elektrycznych w Białymstoku. Interesuję się sportem, motoryzacją oraz programowaniem. Pracuję jako trener w klubie żeglarskim. Lubię pracować z ludźmi i uczyć się nowych rzeczy. 
+            W wolnym czasie uczę się hiszpańskiego i ćwiczę na siłowni.</h2>
+        
+        <div class="skills">
+            <div class="skill">
+                <label for="programmer">Programowanie</label>
+                <div class="progress-bar">
+                    <div id="programmer" class="progress"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <label for="language">Języki</label>
+                <div class="progress-bar">
+                    <div id="language" class="progress"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <label for="SenseOfHumor">Poczucie humoru</label>
+                <div class="progress-bar">
+                    <div id="SenseOfHumor" class="progress"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <label for="social-skills">Umiejętności społeczne</label>
+                <div class="progress-bar">
+                    <div id="social-skills" class="progress"></div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- Koniec sekcji 'person' -->
 
     <div id="education">
-        <h1>Edukacja</h1>
+        <h1>Edukacja</h1>   
         <div class="grid-container">
-            <div class="education-item left">
-                <img src="images/logoZse.png" alt="ZSE Logo" onclick="toggleInfo('ZseInfo', 'Zespół Szkół Elektronicznych', 'Opis szkoły ZSE.')">
+            <div class="education-item right">
+                <img src="images/zseLogo.png" alt="ZSE Logo" onclick="toggleInfo('ZseInfo', 'Zespół Szkół Elektronicznych', 'Opis szkoły ZSE.')">
                 <div id="ZseInfo"></div>
             </div>
-            <div class="education-item right">
+            <div class="education-item left">
                 <img src="images/logoMljar.png" alt="Mljar Logo" onclick="toggleInfo('MljarInfo', 'Inna Szkoła', 'Opis dotyczący innej szkoły.')">
                 <div id="MljarInfo"></div>
             </div>
         </div>
     </div>
-    
+
     <div id="experience">
         <h1>Doświadczenie</h1>
         <div class="grid-container">
@@ -53,12 +81,25 @@
             </div>
         </div>
     </div>
-    
 
     <div id="contact">
         <h1>Kontakt</h1>
-        <a href="mailto:szymonmalachowski.1@gmail.com"><img src="images/mailto.png" class="contact-item" alt="Email"></a> 
-        <a href="https://github.com/qmpel22"><img src="images/github.png" class="contact-item" alt="GitHub"></a> 
+        <div class="contact-container">
+            <div class="contact-item-wrapper right">
+                <a href="mailto:szymonmalachowski.1@gmail.com">
+                    <img src="images/mailto.png" class="contact-item" alt="Email">
+                </a>
+            </div>
+            <div class="contact-item-wrapper left">
+                <a href="https://github.com/qmpel22">
+                    <img src="images/github.png" class="contact-item" alt="GitHub">
+                </a>
+            </div>
+        </div>
     </div>
+
+    <footer id="copyright">
+        <p>&copy; Copyright 2025 Szymon Małachowski. </p>
+    </footer>
 </body>
 </html>
